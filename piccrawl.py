@@ -9,7 +9,7 @@ after = ""
 data = ""
 name = ""
 URL = 'https://openapi.band.us/v2/band/album/photos'
-for i in range(1,2):
+for i in range(0,800):
     if after == "":
         params = {'access_token': token, 'band_key': key}
         response = requests.get(URL, params=params)
@@ -25,7 +25,7 @@ for i in range(1,2):
         response = requests.get(URL, params=params)
         for i in response.json()['result_data']['items']:
             if i['author']['name'] == name:
-                urllib.request.urlretrieve(i['url'], os.getcwd() + "/python3/img/" + str(i) + "2.jpg")
+                urllib.request.urlretrieve(i['url'], os.getcwd() + "/img/" + i['photo_key'] + ".jpg")
                 data += i['url']
                 data += "\n"
         after = response.json()['result_data']['paging']['next_params']['after']
