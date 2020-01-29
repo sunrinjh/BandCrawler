@@ -11,12 +11,21 @@
     <div style="text-align:center;"> 
         <h1>밴드 목록 및 키 조회하기</h1> 
         <h3><a href="https://developers.band.us/develop/myapps">이 링크에서 찾을 수 있는 Aceess Token을 복사 붙여넣기 하세요</a></h3>
-        <form method="GET" action="https://openapi.band.us/v2.1/bands">
+        <form method="GET" action="" name="tokenform">
             Access Token &nbsp
             <input type="text" name="access_token">
-            <button type="submit">확인</button>
+            <input type="button" value="확인" onclick="goSubmit();">
         </form>
+        <h3>확인 누르면 뜨는 창에서 band_key를 검색하세요</h3>
     </div>
+    <script language="javascript">
+        function goSubmit()
+        {
+            tokenform.action = "https://openapi.band.us/v2.1/bands";
+            tokenform.target = "_blank";
+            tokenform.submit();
+        }
+    </script>
 </body>
 
 </html>
